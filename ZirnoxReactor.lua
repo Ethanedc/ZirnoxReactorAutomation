@@ -41,7 +41,9 @@ function ZirnoxReactor:new()
     for y = 1, 7 do
         self.reactorChamber[y] = {}
         for x = 1, 7 do
-            print(x, y, idx, tr.getStackInSlot(chamberSide, idx).name)
+            local stack = tr.getStackInSlot(chamberSide, idx)
+            if stack ~= nil then print(stack.name) end
+            print(x, y, idx, idx2)
             if ((idx2 - 1) & 0) == 0 then
                 self.reactorChamber[y][x] = ReactorCell:new(idx, ZirnoxRod.ROD_BLOCK)
             else
@@ -89,7 +91,7 @@ end
 function ZirnoxReactor.getMinecraftRodFromReactor(stack)
     local rod = ZirnoxRod.ROD_EMPTY
 
-    if stack.name ~= "hbm:zirnox_rod" then return rod end
+    if stack == nil or stack.name ~= "hbm:zirnox_rod" then return rod end
 
     rod.type = ZirnoxRodType.ZIRNOX_ROD_TYPE_NORMAL
 
