@@ -1,4 +1,4 @@
-ReactorCell = { index = 0, rod = ZirnoxRod.ROD_EMPTY }
+local ReactorCell = { index = 0, rod = ZirnoxRod.ROD_EMPTY }
 ReactorCell.__index = ReactorCell
 
 function ReactorCell:new(index, rod)
