@@ -44,7 +44,7 @@ function ZirnoxReactor:new()
             local stack = tr.getStackInSlot(chamberSide, idx)
             if stack ~= nil then print(stack.name) end
             print(x, y, idx, idx2)
-            if ((idx2 - 1) & 0) == 0 then
+            if ((idx2 - 1) & 1) == 0 then
                 self.reactorChamber[y][x] = ReactorCell:new(idx, ZirnoxRod.ROD_BLOCK)
             else
                 self.reactorChamber[y][x] = ReactorCell:new(idx,
