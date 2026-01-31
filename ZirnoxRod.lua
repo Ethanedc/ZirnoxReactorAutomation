@@ -26,7 +26,7 @@ function ZirnoxRod:setFrom(rod)
 end
 
 function ZirnoxRod:tostring()
-    return "Rod Name: "..self.name.."\nRod Type: "..tostring(self.type).."Rod Strength"..tostring(self.strength)
+    return "Rod Name: "..self.name.."\nRod Type: "..tostring(self.type).."\nRod Strength: "..tostring(self.strength)
 end
 
 -- Constants
