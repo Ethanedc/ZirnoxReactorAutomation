@@ -58,12 +58,12 @@ function ZirnoxReactor:new()
 
             idx2 = idx2 + 1
         end
+    end
 
-        local invSize = self:getReactorBridgeInventorySize()
-        for i = 1, invSize do
-            local rod = self:getMinecraftRodFromBridge(i)
-            self.reactorBridge[i] = ReactorCell:new(i, rod)
-        end
+    local invSize = self:getReactorBridgeInventorySize()
+    for i = 1, invSize do
+        local rod = self:getMinecraftRodFromBridge(i)
+        self.reactorBridge[i] = ReactorCell:new(i, rod)
     end
 
     return self
