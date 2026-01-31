@@ -43,12 +43,12 @@ function ZirnoxReactor:new()
         for x = 1, 7 do
             local stack = tr.getStackInSlot(chamberSide, idx)
             if stack ~= nil then print(stack.name) end
-            print(x, y, idx, idx2)
+
             if ((idx2 - 1) & 1) == 0 then
                 self.reactorChamber[y][x] = ReactorCell:new(idx, ZirnoxRod.ROD_BLOCK)
             else
                 self.reactorChamber[y][x] = ReactorCell:new(idx,
-                    ZirnoxReactor.getMinecraftRodFromReactor(tr.getStackInSlot(chamberSide, idx)))
+                    ZirnoxReactor.getMinecraftRodFromReactor(stack))
                 idx = idx + 1
 
                 if not self.reactorChamber[y][x].rod:isEmpty() then
