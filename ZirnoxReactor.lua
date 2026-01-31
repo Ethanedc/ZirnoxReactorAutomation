@@ -1,3 +1,5 @@
+ReactorCell = require("ReactorCell")
+
 ZirnoxReactor =
 {
     heat = 0,
@@ -13,8 +15,6 @@ ZirnoxReactor =
 }
 
 ZirnoxReactor.__index = ZirnoxReactor
-
-local ReactorCell = require("ReactorCell")
 
 local comp = require("component")
 local tr = comp.transposer
@@ -46,13 +46,17 @@ function ZirnoxReactor:new()
                 self.reactorChamber[y][x] = ReactorCell:new(idx,
                     ZirnoxReactor.getMinecraftRodFromReactor(tr.getStackInSlot(chamberSide, idx)))
                 idx = idx + 1
+
+                if not self.reactorChamber[y][x].rod:isEmpty() then
+                    print(self.reactorChamber[y][x].rod:tostring())
+                end
             end
         end
 
         local invSize = self:getReactorBridgeInventorySize()
         for i = 1, invSize do
             local rod = self:getMinecraftRodFromBridge(i)
-            
+            self.reactorBridge[i] = ReactorCell:new(i, rod)
         end
     end
 
