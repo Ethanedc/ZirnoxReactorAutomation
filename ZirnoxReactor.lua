@@ -21,6 +21,7 @@ local tr = comp.transposer
 local sides = require("sides")
 local zirnox = comp.zirnox_reactor
 
+
 local chamberSide = sides.front
 local bridgeSide = sides.left
 local reactorIdSide = sides.bottom
