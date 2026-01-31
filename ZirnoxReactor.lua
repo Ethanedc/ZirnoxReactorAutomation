@@ -14,9 +14,10 @@ ZirnoxReactor =
 
 ZirnoxReactor.__index = ZirnoxReactor
 
-local tr = require("transposer")
+local comp = require("component")
+local tr = comp.trans
 local sides = require("sides")
-local zirnox = require("component").zirnox
+local zirnox = comp.zirnox
 
 local chamberSide = sides.front
 local bridgeSide = sides.left
