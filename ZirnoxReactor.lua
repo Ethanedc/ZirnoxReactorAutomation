@@ -63,6 +63,17 @@ function ZirnoxReactor:getMinecraftRodFromBridge(idx)
     return ZirnoxReactor.getMinecraftRodFromReactor(tr.getStackInSlot(bridgeSide, idx))
 end
 
+function ZirnoxReactor:getReactorBridgeUsageSize()
+    local size = self:getReactorBridgeInventorySize()
+    for i = 1, size do
+        if tr.getStackInSlot(bridgeSide, i) == nil then
+            return i
+        end
+    end
+
+    return size
+end
+
 function ZirnoxReactor.getMinecraftRodFromReactor(stack)
     local rod = ZirnoxRod.ROD_EMPTY
 
@@ -246,3 +257,7 @@ end
 function ZirnoxReactor:getRodNeightbourCount(x, y)
     return self:getRodNeightbourCountT(x, y, 0)
 end
+
+
+local test = ZirnoxReactor:new()
+test:update()
