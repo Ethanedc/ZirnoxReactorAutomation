@@ -36,11 +36,13 @@ function ZirnoxReactor:new()
     self.reactorBridge = {}
 
     local idx = 1
+    local idx2 = 0
 
     for y = 1, 7 do
         self.reactorChamber[y] = {}
         for x = 1, 7 do
-            if ((y - 1) & 1) == 0 then
+            print(x, y, idx, tr.getStackInSlot(chamberSide, idx).name)
+            if ((idx2 - 1) & 0) == 0 then
                 self.reactorChamber[y][x] = ReactorCell:new(idx, ZirnoxRod.ROD_BLOCK)
             else
                 self.reactorChamber[y][x] = ReactorCell:new(idx,
@@ -51,6 +53,8 @@ function ZirnoxReactor:new()
                     print(self.reactorChamber[y][x].rod:tostring())
                 end
             end
+
+            idx2 = idx2 + 1
         end
 
         local invSize = self:getReactorBridgeInventorySize()
@@ -85,7 +89,7 @@ end
 function ZirnoxReactor.getMinecraftRodFromReactor(stack)
     local rod = ZirnoxRod.ROD_EMPTY
 
-    if stack == nil or stack.name ~= "hbm:zirnox_rod" then return rod end
+    if stack.name ~= "hbm:zirnox_rod" then return rod end
 
     rod.type = ZirnoxRodType.ZIRNOX_ROD_TYPE_NORMAL
 
