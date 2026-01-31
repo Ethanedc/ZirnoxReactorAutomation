@@ -85,7 +85,7 @@ end
 function ZirnoxReactor.getMinecraftRodFromReactor(stack)
     local rod = ZirnoxRod.ROD_EMPTY
 
-    if stack.name ~= "hbm:zirnox_rod" then return rod end
+    if stack == nil or stack.name ~= "hbm:zirnox_rod" then return rod end
 
     rod.type = ZirnoxRodType.ZIRNOX_ROD_TYPE_NORMAL
 
