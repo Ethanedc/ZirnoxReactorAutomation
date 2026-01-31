@@ -11,3 +11,5 @@ end
 function ReactorCell:toString()
     return "Internal Index: "..tostring(self.index).."\nZirnox Rod Info: "..self.rod:tostring()
 end
+
+return ReactorCell
